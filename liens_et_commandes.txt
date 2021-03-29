@@ -1,0 +1,138 @@
+##########################################
+##      SAS-LANG.COM -> DOCUMENTATION   ##
+##########################################
+https://sass-lang.com/
+
+######################################
+##      Install et utilisation      ##
+######################################
+
+lancemant de la compilation 1 fois
+
+sass input.scss output.css
+ou sass input.scss:output.css onput2.scss:output2.css
+
+recompilation auto : --watch
+sass --watch input.scss output.css
+
+applicable sur des dossier
+sass --watch /Projet/scss/ /Projet/css/
+
+
+Il faut trouver des noms pour les variables utilisées dans le scss 
+
+pour le déploiement, pas de scss...
+On relance donc une commande sass --no-source-map afin d'avoir un fichier css 'propre', cad sans marque de commentaire sass.
+
+##########################
+##      VARIABLES       ##
+##########################
+
+en sass
+
+$font-stack:  Helvetica, sans-serif
+$primary-color : #333
+
+body
+    font: 100% $font-stack
+    color: $primary-color
+
+
+en scss
+
+$font-stack:  Helvetica, sans-serif;
+$primary-color : #333;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+
+
+##########################
+##     IMBRICATION      ##
+##########################
+
+interprétation des espaces dans html:
+Les espaces aux extrémités ne sont jamais interprétés.
+
+les espaces pré-fixes et suffixes sont ingnorés. En revanche, les espace intermédiaires sont 'fusionnés' lorsqu'ils sont inline.
+soit inline
+la propriété css word-spacing permet de définir la taille des espaces.
+
+soit block: espaces interprétés.
+
+
+
+##########################
+##         BEM          ##
+##########################
+
+http://getbem.com/
+
+
+##########################
+##       SCOPING        ##
+##########################
+
+portée des variables.
+j'accède aux variables défnies au sein du groupe où elles sont déclarées.
+Mais elles héritent de leurs parents.
+Toutefois, une redéfinition de variable enfant aura une portée au sein de l'enfant et masquera la variable parent redéfinie.
+
+la référence au parent avec le caractère &
+    .menu-bar {
+        background-color: $brand-color;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        a {
+            background-color: lighten($brand-color, 40%);
+            display: block;
+            padding: .5em;
+            &:hover {
+                background-color: lighten($brand-color, 70%); /* .menu-bar a:hover */
+            }
+        }
+    }
+
+
+##########################
+##     COMMENTAIRES     ##
+##########################
+
+/*
+    commentaire préservé à la compilation ( et à la compilation --no-source-map)
+*/
+
+// commentaire supprimé à la compilation
+
+
+##########################
+##        TYPES         ##
+##########################
+
+nombre      1.2, 43, -21
+dimension    4px, 0.7em, 12ch
+chaîne:      "hello", 'bonjour', une chaine de caractère avec espace
+bouléen      true, false
+null        null
+liste       valeurs, séparées, avec, virgules
+mapping      (clé1: valeur1, clé2: valeur2)
+référence de fonction
+
+Sass reconnaît plusieurs syntaxes: avec ou sans quotes.
+Il est recommandé de travailler en utf-8.
+En tout premier du fichier main.scss:
+@charset  'utf8';
+
+##########################
+##    INTERPOLATION     ##
+##########################
+
+$name: foo;
+$attr: border;
+p.#{$name} {
+    #{$attr}-color: blue;
+}
