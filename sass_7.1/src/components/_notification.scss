@@ -1,0 +1,13 @@
+.error p {
+    @include alert($error-color);
+}
+
+;
+.warning p {
+    @include alert($warning-color);
+}
+
+;
+.success p {
+    @include alert($success-color);
+}

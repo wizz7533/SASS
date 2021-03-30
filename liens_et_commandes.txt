@@ -218,6 +218,7 @@ sass/
 ##########################
 
 Permet de grouper une liste de propriétés à réutiliser ensemble.
+elles sont placées dans un fichier abstracts.
 Utile par exemple pour les préfixes constructeur.
 
 mot clé pour déclarer : 
@@ -225,4 +226,33 @@ mot clé pour déclarer :
 
 pour utiliser
 @include
+
+
+##########################
+##       HERITAGE       ##
+##########################
+
+mot clé pour déclarer : %
+% message-shared {
+    boder : 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+pour utiliser: @extend
+.message {
+    @extend %message-shared;
+} 
+.success {
+    @extend %message-shared;
+    border-color: green;
+}
+.warning {
+    @extend %message-shared;
+    border-color: orange;
+}
+.error {
+    @extend %message-shared;
+    border-color: red;
+}
 

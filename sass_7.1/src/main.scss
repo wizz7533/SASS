@@ -1,6 +1,15 @@
-@import 'components/menu_bar';
-@import'components/color';
-@import 'components/banner';
+@charset "utf-8";
+
+/* abstracts */
+
+@import'abstracts/color';
+@import 'abstracts/mixin';
+
+/*components */
+
 @import 'components/avatar';
 @import 'components/logo';
-// @charset 'utf-8';
+@import 'components/banner';
+@import 'components/menu_bar';
+@import 'components/notification';
+@import 'components/popover';

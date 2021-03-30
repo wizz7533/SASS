@@ -1,0 +1,15 @@
+@mixin color-box($base-color) {
+    $light: hsl(hue($base-color), 70%, 80%);
+    $dark: hsl(hue($base-color), 70%, 20%);
+    background-color: $light;
+    color: $dark;
+}
+
+@mixin alert ($background-color: ivory, $color: black, $width: 80vh) {
+    background-color: $background-color;
+    color: $color;
+    width: $width;
+    display: flex;
+    font-size: 3.5em;
+    font-weight: bolder;
+}
