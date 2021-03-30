@@ -211,3 +211,18 @@ sass/
 `– main.scss              # Main Sass file
 
 --> https://sass-guidelin.es/fr/
+
+
+##########################
+##        MIXINS        ##
+##########################
+
+Permet de grouper une liste de propriétés à réutiliser ensemble.
+Utile par exemple pour les préfixes constructeur.
+
+mot clé pour déclarer : 
+@ mixin
+
+pour utiliser
+@include
+

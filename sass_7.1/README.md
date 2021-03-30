@@ -2,4 +2,4 @@
 
 ## build
 
-nohup sass --watch src/main.scss dist/style.css &
+nohup sass --watch src/main.scss dist/style.css --no-source-map &
