@@ -312,7 +312,15 @@ p{
 
 @each (parcours des collections)
 
-@each $animal
+@each $animal, $color, $cursor in (puma, black, default), (sea-slug, blue, pointer), (egret, white, move) {
+    .#{$animal}-icon {
+        background-image: url('/images/#{$animal}.png');
+        border: 2px solid $color;
+        cursor: $cursor;
+   }
+}
+
+            
 
 
 ##########################
@@ -320,3 +328,9 @@ p{
 ##########################
 
 avec gestion de l'incrémentation.
+
+$i: 6;
+@while $i>0 {
+    .item-#{$i} { width: 2em * $i; }
+    $i: $i - 2;
+}
