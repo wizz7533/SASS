@@ -146,3 +146,68 @@ Prefixer le non de  fichier avec un "_": _reset.scss
 Importer avec la directive @import, mais avec le nom de fichier sans le préfixe _ ni l'extention.scss
 
 ex: @import 'reset';
+
+##########################
+##     ARCHITECTURE     ##
+##########################
+
+Patron 7.1
+7 dossiers - 1 fichier
+- base/
+- components/  -- barre de menu qui peut comporter des sous sous-composants ( composants enfants)
+- layout/  -- mise en page et positionnement de la grille d'affichage -> concerné par media-queyries
+- pages/  -- variations par page
+- theme/  -- éléments purement esthétique -> injection d'image, iddentité graphique/visuelle , variation du thème par rapport à une structure web de base
+- abstract/ -- mixine, qui ne produit pas de règles mais va être utilisé pa d'autre règles
+- vendors/  -- import de feuilles de styles qui ne sont pas les votres et donc qui ne seront pas versionnées ( concerné par le .gitignore)
+- main.scss
+
+->> https://sass-guidelin.es/#the-7-1-pattern
+
+sass/
+|
+|– abstracts/
+|   |– _variables.scss    # Sass Variables
+|   |– _functions.scss    # Sass Functions
+|   |– _mixins.scss       # Sass Mixins
+|   |– _placeholders.scss # Sass Placeholders
+|
+|– base/
+|   |– _reset.scss        # Reset/normalize
+|   |– _typography.scss   # Typography rules
+|   …                     # Etc.
+|
+|– components/
+|   |– _buttons.scss      # Buttons
+|   |– _carousel.scss     # Carousel
+|   |– _cover.scss        # Cover
+|   |– _dropdown.scss     # Dropdown
+|   …                     # Etc.
+|
+|– layout/
+|   |– _navigation.scss   # Navigation
+|   |– _grid.scss         # Grid system
+|   |– _header.scss       # Header
+|   |– _footer.scss       # Footer
+|   |– _sidebar.scss      # Sidebar
+|   |– _forms.scss        # Forms
+|   …                     # Etc.
+|
+|– pages/
+|   |– _home.scss         # Home specific styles
+|   |– _contact.scss      # Contact specific styles
+|   …                     # Etc.
+|
+|– themes/
+|   |– _theme.scss        # Default theme
+|   |– _admin.scss        # Admin theme
+|   …                     # Etc.
+|
+|– vendors/
+|   |– _bootstrap.scss    # Bootstrap
+|   |– _jquery-ui.scss    # jQuery UI
+|   …                     # Etc.
+|
+`– main.scss              # Main Sass file
+
+--> https://sass-guidelin.es/fr/
