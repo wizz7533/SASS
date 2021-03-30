@@ -136,3 +136,13 @@ $attr: border;
 p.#{$name} {
     #{$attr}-color: blue;
 }
+
+##########################
+##       PARTIALS       ##
+##########################
+
+Permet d'eclater le style sur plusieurs fichiers plus petits et plus simples.
+Prefixer le non de  fichier avec un "_": _reset.scss
+Importer avec la directive @import, mais avec le nom de fichier sans le préfixe _ ni l'extention.scss
+
+ex: @import 'reset';
