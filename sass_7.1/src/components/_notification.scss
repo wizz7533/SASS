@@ -1,13 +1,41 @@
-.error p {
-    @include alert($error-color);
+// .error p {
+//     @include alert($error-color);
+// }
+// ;
+// .warning p {
+//     @include alert($warning-color);
+// }
+// ;
+// .success p {
+//     @include alert($success-color);
+// }
+.alert {
+    padding: .5em;
+    @each $name,
+    $color in $severity {
+        &.#{$name} {
+            @include color-box($color);
+        }
+    }
 }
 
-;
-.warning p {
-    @include alert($warning-color);
-}
-
-;
-.success p {
-    @include alert($success-color);
-}
+// .alert {
+//   padding: .5em;
+// &.error {
+//   @include color-box($error-color);
+// }
+// &.warning {
+//   @include color-box($warning-color);
+// }
+// &.success {
+//   @include color-box($success-color);
+// }
+//}
+// $severity: ( error: red, warning: orange, success: green);
+// // $error-color: red;
+// // $warning-color: orange;
+// // $success-color: green;
+// @each $name, $color in $severity {
+//     &.(#{$name}) {
+//       @include color-box(#{$color});
+// }
