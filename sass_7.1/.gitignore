@@ -1,3 +1,5 @@
 # build and generated files
 dist/
-nohup.out
+
+# lib and other dependencies
+node_modules/
